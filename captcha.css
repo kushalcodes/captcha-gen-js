@@ -1,8 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-.__captcha {
+.__captcha_main {
+  display: block;
+  width: inherit;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
-  background-color: #ebebeb;
+}
+.__captcha_value {
+  font-size: 35px;
   font-family: "Indie Flower", cursive;
+  margin-bottom: 5px;
+  /* user-select: none; */
+}
+.__captcha_input,
+.__captcha_btn {
+  outline: none !important;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 1px solid #ebebeb;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  line-height: 1.2em !important;
+}
+
+.__captcha_input {
+  border-right: none;
+  border-left: none;
+}
+.__captcha_btn {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.__captcha_btn:active {
+  background-color: #ebebeb;
 }
