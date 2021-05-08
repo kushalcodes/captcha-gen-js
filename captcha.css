@@ -10,7 +10,10 @@
   font-size: 35px;
   font-family: "Indie Flower", cursive;
   margin-bottom: 5px;
-  /* user-select: none; */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .__captcha_input,
 .__captcha_btn {

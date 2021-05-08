@@ -84,7 +84,23 @@ const __Captcha = {
 
   match: function (captchaId) {
     const verification = this.verify(captchaId);
-    this.onVerify[captchaId](verification, this.captchas[captchaId]);
+    // send to callback
+    this.onVerify[captchaId](
+      {
+        verified: verification,
+        captcha: {
+          userInput: document.getElementById("__captcha_input_" + captchaId).value,
+          value: this.captchas[captchaId].value,
+          id: this.captchas[captchaId].id,
+          els: {
+            parent: document.getElementById("__captcha_input_" + captchaId).parentElement,
+            input: document.getElementById("__captcha_input_" + captchaId),
+            reload: document.getElementById("__captcha_refresh_" + captchaId),
+            submit: document.getElementById("__captcha_submit_" + captchaId)
+          }
+        }
+      }
+    );
   },
 
   verify: function (captchaId) {
@@ -162,10 +178,15 @@ const __Captcha = {
 };
 
 
-const onVerify = (v, obj) => {
-  if (v) alert('ok');
-  else alert('Captcha Mismatch');
-  console.log(obj);
+const onVerify = (verification) => {
+  const captcha = verification.captcha;
+  if (verification.verified) {
+    captcha.els.input.style.borderColor = 'green'
+  }
+  else {
+    captcha.els.input.style.borderColor = 'red'
+  }
+  console.log(verification);
 }
 
 __Captcha.init(".__captcha", onVerify);
