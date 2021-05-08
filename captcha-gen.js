@@ -75,11 +75,11 @@ const __Captcha = {
     // captcha value 
     el.innerHTML += "<div class='__captcha_value' id='__captcha_value_" + currentCaptcha.id + "'>" + currentCaptcha.value + "</div>";
     // captcha refresh btn
-    el.innerHTML += "<input type='button' class='__captcha_btn' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
+    el.innerHTML += "<input type='button' title='Reload' class='__captcha_btn' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
     // captcha input box
     el.innerHTML += "<input type='text' class='__captcha_input' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha keywords' maxlength = '6' />";
     // captcha submit 
-    el.innerHTML += "<input type='button' class='__captcha_btn' id='__captcha_submit_" + currentCaptcha.id + "' value = '>' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
+    el.innerHTML += "<input type='button' title='Check' class='__captcha_btn' id='__captcha_submit_" + currentCaptcha.id + "' value = '>' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
   },
 
   match: function (captchaId) {
@@ -105,27 +105,67 @@ const __Captcha = {
   onVerify: [],
 
   init: function (elString, onVerify) {
-    const isIdOrClass = elString[0];
-    let el = null;
-    el = isIdOrClass === "#" ? document.getElementById(elString.replace("#")) : document.getElementsByClassName(elString.replace(".", ""))[0];
+    if (typeof elString !== "string") {
+      console.error('captcha-gen-js : Invalid element passed for initliazing captcha.', elString);
+      return;
+    }
 
-    // initializers
+    if (typeof onVerify !== "function") {
+      console.error('captcha-gen-js : Invalid function passed for verification callback.', onVerify);
+      return;
+    }
+
+    // if no element identifier passed, make it to # or id
+    if (elString[0] !== "#" && elString[0] !== ".") {
+      elString = "#" + elString;
+    }
+
+    // initialize css
     // this.initCss();
-    this.currentCaptchaParent = el;
-    this.initCaptchaElements();
 
-    // on verify event
-    this.onVerify.push(onVerify);
+    // if id
+    if (elString[0] === "#") {
+      const el = document.getElementById(elString.replace("#"));
+      if (!el) {
+        console.error('captcha-gen-js : No element exist on DOM with id of ', elString);
+        return;
+      }
+
+      // initializers
+      this.currentCaptchaParent = el;
+      this.initCaptchaElements();
+      // on verify event
+      this.onVerify.push(onVerify);
+      return;
+    }
+
+    // if classes
+    if (elString[0] === ".") {
+      const elements = document.getElementsByClassName(elString.replace(".", ""));
+      if (elements.length === 0) {
+        console.error('captcha-gen-js : No elements found on DOM with class name of ', elString);
+        return;
+      }
+
+      // loop all classes and add handle captcha on each
+      for (let i = 0; i < elements.length; i++) {
+        const captchaEl = elements[i];
+        // initializers
+        this.currentCaptchaParent = captchaEl;
+        this.initCaptchaElements();
+        // on verify event
+        this.onVerify.push(onVerify);
+      }
+      return;
+    }
   }
 };
 
 
 const onVerify = (v, obj) => {
   if (v) alert('ok');
+  else alert('Captcha Mismatch');
   console.log(obj);
 }
 
 __Captcha.init(".__captcha", onVerify);
-__Captcha.init(".__captcha1", v => {
-  if (v) alert('ish');
-});
