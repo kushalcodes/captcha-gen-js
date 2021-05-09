@@ -50,9 +50,9 @@ if (typeof __Captcha !== "undefined") {
         clearTimeout(__Captcha.Inbuilts.Verifications.TickTimer);
         verificationObj.captcha.els.submit.disabled = true;
         if (verificationObj.verified) {
-          verificationObj.captcha.els.value.innerHTML = "<img src='/assets/img/correct-tick-anim.gif'/>";
+          verificationObj.captcha.els.value.innerHTML = "<img src='https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js/assets/img/correct-tick-anim.gif'/>";
         } else {
-          verificationObj.captcha.els.value.innerHTML = "<img src='/assets/img/incorrect-tick-anim.gif'/>";
+          verificationObj.captcha.els.value.innerHTML = "<img src='https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js/assets/img/incorrect-tick-anim.gif'/>";
           verificationObj.captcha.els.input.focus();
         }
         __Captcha.Inbuilts.Verifications.TickTimer = setTimeout(() => {
