@@ -5,29 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Example</title>
-  <!-- <link rel="stylesheet" href="captcha.css"> -->
+  <script src="captcha-gen.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@97e40187c30a03df2fcb7f12945b3fbdcf1fbc90/min/captcha-gen.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@97e40187c30a03df2fcb7f12945b3fbdcf1fbc90/min/captcha.inbuilt.min.js"></script> -->
 </head>
 <body>
 
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
-  <div class="__captcha"></div>
+  <div id="my_captcha"></div>
 
-  <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/min/captcha-gen.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/captcha.inbuilt.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/min/captcha.inbuilt.min.js"></script>
+  <div class="my_captcha"></div>
+  <div class="my_captcha"></div>
+
+ 
 
   <script>
-    __Captcha.setSubmitIcon('https://img.icons8.com/carbon-copy/100/fa314a/right.png');
-    __Captcha.init(".__captcha", (response)=>{
-      __Captcha.Inbuilts.Verifications.Border(response);
-      __Captcha.Inbuilts.Verifications.Tick(response);
+    __Captcha.init(".my_captcha", r=>{
+      console.log(JSON.stringify(r))
     });
   </script>
 </body>
