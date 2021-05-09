@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Submit Btn Example | @kushalcodes</title>
+  <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha-gen.min.js"></script>
+</head>
+<body>
+
+  <div id="my_captcha"></div>
+  <div class="my_captcha"></div>
+  <div class="my_captcha"></div>
+
+  <script>
+    // setters must be called befor initialize or init()
+    __Captcha.setSubmitIcon('https://img.icons8.com/ios-glyphs/30/000000/right--v1.png');
+    // initialize with default verification response
+    __Captcha.init("#my_captcha");
+    __Captcha.init(".my_captcha");
+  </script>
+</body>
+</html>

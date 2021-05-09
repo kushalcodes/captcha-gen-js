@@ -195,3 +195,6 @@
 // set custom submit btn class
 __Captcha.setSubmitIcon(imageUrl);
 ```
+
+#### Icons
+- I have used icons from https://www.icons8.com
