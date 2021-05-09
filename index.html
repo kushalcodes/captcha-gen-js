@@ -24,7 +24,11 @@
   <script src="captcha.inbuilt.js"></script>
 
   <script>
-    __Captcha.init(".__captcha", __Captcha.Inbuilts.Verifications.ReloadCaptcha);
+    __Captcha.setSubmitIcon('https://img.icons8.com/flat-round/64/fa314a/right--v1.png');
+    __Captcha.init(".__captcha", (response)=>{
+      __Captcha.Inbuilts.Verifications.Border(response);
+      __Captcha.Inbuilts.Verifications.Tick(response);
+    });
   </script>
 </body>
 </html>

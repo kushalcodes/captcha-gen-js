@@ -15,6 +15,10 @@
   -ms-user-select: none;
   user-select: none;
 }
+.__captcha_value > img {
+  height: 45px;
+  width: 45px;
+}
 .__captcha_input,
 .__captcha_btn {
   outline: none !important;
@@ -34,10 +38,30 @@
   border-right: none;
   border-left: none;
 }
+.__captcha_input.custom {
+  border-right: 1px solid #ebebeb;
+}
 .__captcha_btn {
   cursor: pointer;
   background-color: #ffffff;
 }
 .__captcha_btn:active {
   background-color: #ebebeb;
+}
+.__captcha_btn.custom {
+  position: relative;
+  top: 17px;
+  left: -36px;
+  background-size: 100%;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.__captcha_btn.custom:active {
+  transform: scale(0.8);
+  background-color: unset;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
 }
