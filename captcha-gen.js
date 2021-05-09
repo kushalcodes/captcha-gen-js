@@ -99,13 +99,13 @@ let __Captcha = null;
       // set our top class name
       el.className += ' __captcha_main';
       // captcha value 
-      el.innerHTML += "<div class='__captcha_value' id='__captcha_value_" + currentCaptcha.id + "'>" + currentCaptcha.value + "</div>";
+      el.innerHTML += "<div class='__captcha_value __border_color_default' id='__captcha_value_" + currentCaptcha.id + "'>" + currentCaptcha.value + "</div>";
       // captcha refresh btn
-      el.innerHTML += "<input type='button' tabindex='-1' title='Reload' class='__captcha_btn __captcha_reload' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
+      el.innerHTML += "<input type='button' tabindex='-1' title='Reload' class='__captcha_btn __captcha_reload __border_color_default' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
       // captcha input box
-      el.innerHTML += "<input type='text' class='__captcha_input" + (this.submitIcon ? ' custom' : '') + "' tabindex='0' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha' maxlength = '6' />";
+      el.innerHTML += "<input type='text' class='__captcha_input __border_color_default" + (this.submitIcon ? ' custom' : '') + "' tabindex='0' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha' maxlength = '6' />";
       // captcha submit 
-      el.innerHTML += "<input type='button' title='Check' tabindex='-1' class='__captcha_btn" + (this.submitIcon ? ' custom' : '') + "' id='__captcha_submit_" + currentCaptcha.id + "' style='" + (this.submitIcon ? 'background-image:url(' + this.submitIcon + ')' : '') + "' value = '" + (this.submitIcon ? '' : '>') + "' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
+      el.innerHTML += "<input type='button' title='Check' tabindex='-1' class='__captcha_btn __border_color_default" + (this.submitIcon ? ' custom' : '') + "' id='__captcha_submit_" + currentCaptcha.id + "' style='" + (this.submitIcon ? 'background-image:url(' + this.submitIcon + ')' : '') + "' value = '" + (this.submitIcon ? '' : '>') + "' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
     },
 
     match: function (captchaId) {

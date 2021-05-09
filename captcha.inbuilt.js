@@ -12,9 +12,11 @@ if (typeof __Captcha !== "undefined") {
         // clear
         clearTimeout(__Captcha.Inbuilts.Verifications.borderTimer);
         // style default
+        __Captcha.removeClassAll(verificationObj, '__border_color_default');
         __Captcha.sytleAll(verificationObj, [
           ['borderColor', '#ebebeb'],
         ]);
+
         __Captcha.Inbuilts.Verifications.borderTimer = setTimeout(() => {
           if (verificationObj.verified) {
             // style green is verified
@@ -31,9 +33,7 @@ if (typeof __Captcha !== "undefined") {
 
         // revert to style to default on input
         verificationObj.captcha.els.input.oninput = () => {
-          __Captcha.sytleAll(verificationObj, [
-            ['borderColor', '#ebebeb'],
-          ]);
+          __Captcha.addClassAll(verificationObj, '__border_color_default');
         };
       },
 
@@ -100,6 +100,15 @@ if (typeof __Captcha !== "undefined") {
     __Captcha.addStyles(styles, verificationObj.captcha.els.submit);
   };
 
-  // new essentials
-  // __Captcha.essentials.
+  // add and remove class to all captcha fields
+  __Captcha.addClassAll = function (verificationObj, className) {
+    verificationObj.captcha.els.input.classList.add(className);
+    verificationObj.captcha.els.reload.classList.add(className);
+    verificationObj.captcha.els.submit.classList.add(className);
+  };
+  __Captcha.removeClassAll = function (verificationObj, className) {
+    verificationObj.captcha.els.input.classList.remove(className);
+    verificationObj.captcha.els.reload.classList.remove(className);
+    verificationObj.captcha.els.submit.classList.remove(className);
+  };
 }

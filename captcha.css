@@ -65,3 +65,6 @@
   -ms-transform: scale(0.8);
   -o-transform: scale(0.8);
 }
+.__border_color_default {
+  border-color: #ebebeb !important;
+}
