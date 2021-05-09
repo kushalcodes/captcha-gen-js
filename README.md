@@ -201,7 +201,7 @@
 > use setters before init or before initialize
 
 ```javascript
-// set custom submit btn class
+// set custom submit btn
 __Captcha.setSubmitIcon({
   url: "imageUrl",
   size:
