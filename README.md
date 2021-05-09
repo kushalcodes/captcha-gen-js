@@ -58,12 +58,9 @@
           "els": { // holds all respective captcha elements
               "parent": divElement, // captcha parent element
               "input": divElement, // captcha input text element
-              // captcha value element
-              "value": divElement,
-              // captcha reload btn element
-              "reload": divElement,
-              // captcha submit button element
-              "submit": divElement
+              "value": divElement, // captcha value element
+              "reload": divElement, // captcha reload btn element
+              "submit": divElement // captcha submit button element
           }
       }
     }
@@ -88,7 +85,7 @@
 ```javascript
 <script type="text/javascript">
 
-    //for eg. we have Border verification handler which can be used as:
+    // for eg. we have Border verification handler which can be used as:
     __Captcha.init(".my_captcha", __Captcha.Inbuilts.Verifications.Border);
 
     // can also be used as
@@ -102,7 +99,7 @@
         // Tick verification handler
         // tirggers correct tick animation on verification,
         __Captcha.Inbuilts.Verifications.Tick(verificationResponse);
-        // Tick also has another param for animation second 
+        // Tick also has another param for animation second
         // defualt second is 1 if not provided
         __Captcha.Inbuilts.Verifications.Tick(verificationResponse, 5);
 
@@ -113,5 +110,71 @@
         }
 
      });
+
+     // ReloadCaptcha handler auto reloads captcha when captcha verification is incorrect
+    __Captcha.init(".my_captcha", __Captcha.Inbuilts.Verifications.ReloadCaptcha);
+
+    // other essential function that is available after laoding inbuilt function script
+
+    // add styles to element
+    __Captcha.addStyles([
+      ['borderColor', '#ffffff'],
+      ['camelCaseStyleName', 'styleValue'],
+      ...
+    ], element);
+
+    // we can use this as
+    __Captcha.init(".my_captcha", (response)=>{
+      // if verified
+      if(response.verified){
+        // lets set background color to green on captcha input text box
+        __Captcha.addStyles([
+          ['backgroundColor', 'green']
+        ], response.captcha.els.input);
+
+      }else{
+        // lets set background color to red on captcha input text box if not verified
+        __Captcha.addStyles([
+          ['backgroundColor', 'red']
+        ], response.captcha.els.input);
+      }
+    });
+
+    //above we handled only input box we also have styleAll available to add style to all captcha elements
+
+    __Captcha.init(".my_captcha", (response)=>{
+      // if verified
+      if(response.verified){
+        // lets set background color to green on captcha input text box
+        __Captcha.sytleAll(
+          response, 
+          [
+            ['backgroundColor', 'green']
+          ]
+        );
+
+      }else{
+        // lets set background color to red on captcha input text box if not verified
+        __Captcha.sytleAll(
+          response,
+          [
+            ['backgroundColor', 'red']
+          ]
+        );
+      }
+    });
+
+    // we also have individual stylers
+    // for input text box
+    __Captcha.styleInput(response, stylesArray);
+    // for captcha reload btn
+    __Captcha.styleReload(response, stylesArray);
+    // for captcha submit btn
+    __Captcha.styleSubmit(response, stylesArray);
+
+    // we can also add and remove class names to all captcha elements
+    __Captcha.addClassAll(response, className);
+    __Captcha.removeClassAll(response, className);
+
 </script>
 ```
