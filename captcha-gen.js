@@ -45,7 +45,10 @@ const __Captcha = {
   essentials: {
     rand: function (max, min) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    },
+    insertAfter: function (newNode, referenceNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    },
   },
 
   generate: function () {
@@ -58,7 +61,23 @@ const __Captcha = {
     const link = document.createElement('link');
     link.href = this.captchaCSS;
     link.rel = 'stylesheet';
-    document.getElementsByTagName('head')[0].appendChild(link);
+    document.getElementsByTagName("head")[0].appendChild(link);
+  },
+
+  // handler enter pressed on input
+  handleEnterOnInput: function (e) {
+    const c = e.code.toLowerCase();
+    if (c === "enter") {
+      const captchaId = this.id.replace("__captcha_input_", "");
+      console.log(captchaId);
+      document.getElementById('__captcha_submit_' + captchaId).click();
+    }
+  },
+  initEnterKeyInput: function () {
+    const allInputs = document.getElementsByClassName("__captcha_input");
+    for (let i = 0; i < allInputs.length; i++) {
+      allInputs[i].onkeyup = this.handleEnterOnInput;
+    }
   },
 
   // captcha elemetns
@@ -75,11 +94,11 @@ const __Captcha = {
     // captcha value 
     el.innerHTML += "<div class='__captcha_value' id='__captcha_value_" + currentCaptcha.id + "'>" + currentCaptcha.value + "</div>";
     // captcha refresh btn
-    el.innerHTML += "<input type='button' title='Reload' class='__captcha_btn' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
+    el.innerHTML += "<input type='button' tabindex='-1' title='Reload' class='__captcha_btn' id='__captcha_refresh_" + currentCaptcha.id + "' value = '&#10227;' onclick='__Captcha.refresh(" + currentCaptcha.id + ") '/>";
     // captcha input box
-    el.innerHTML += "<input type='text' class='__captcha_input' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha keywords' maxlength = '6' />";
+    el.innerHTML += "<input type='text' class='__captcha_input' tabindex='0' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha keywords' maxlength = '6' />";
     // captcha submit 
-    el.innerHTML += "<input type='button' title='Check' class='__captcha_btn' id='__captcha_submit_" + currentCaptcha.id + "' value = '>' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
+    el.innerHTML += "<input type='button' title='Check' tabindex='-1' class='__captcha_btn' id='__captcha_submit_" + currentCaptcha.id + "' value = '>' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
   },
 
   match: function (captchaId) {
@@ -97,7 +116,7 @@ const __Captcha = {
             input: document.getElementById("__captcha_input_" + captchaId),
             reload: document.getElementById("__captcha_refresh_" + captchaId),
             submit: document.getElementById("__captcha_submit_" + captchaId)
-          }
+          },
         }
       }
     );
@@ -127,8 +146,14 @@ const __Captcha = {
     }
   },
 
+  handleParams: function (params) {
+    if (typeof params !== "object") return;
+  },
+
   init: function (elString, onVerify, params) {
-    __Captcha.initInner(elString, onVerify);
+    this.handleParams(params);
+    this.initInner(elString, onVerify);
+    this.initEnterKeyInput();
   },
 
   initInner: function (elString, onVerify) {
