@@ -5,6 +5,11 @@
 ## Examples
 
 - Default : https://codepen.io/kushalcodes/pen/gOmpmKR
+- Custom Submit Icon: https://codepen.io/kushalcodes/pen/ZEeGemP
+- Border Effect: https://codepen.io/kushalcodes/pen/JjWdWmd
+- Tick Animation Effect on Verification: https://codepen.io/kushalcodes/pen/ZEeGeVZ
+- Border and Tick : https://codepen.io/kushalcodes/pen/jOBPBde
+- Auto Captcha Reload On Invalid Verification: https://codepen.io/kushalcodes/pen/wvJaJOm
 
 ## Load library
 
