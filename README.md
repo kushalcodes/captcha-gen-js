@@ -3,13 +3,8 @@
 > Library to generate captcha using JavaScript
 
 ## Examples
+
 - Default : https://codepen.io/kushalcodes/pen/gOmpmKR
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="kushalcodes" data-slug-hash="gOmpmKR" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Default Example | @kushalcodes | captcha-gen-js">
-  <span>See the Pen <a href="https://codepen.io/kushalcodes/pen/gOmpmKR">
-  Default Example | @kushalcodes | captcha-gen-js</a> by kushalcodes (<a href="https://codepen.io/kushalcodes">@kushalcodes</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Load library
 
@@ -206,9 +201,10 @@ __Captcha.setSubmitIcon(imageUrl);
 ```
 
 #### Other
-- If you want to change border color for captcha UI, i have put a css selector as .__border_color_default, just override this class to change as you need
+
+- If you want to change border color for captcha UI, i have put a css selector as .\_\_border_color_default, just override this class to change as you need
 - For other css, you can also directly view the css selectors (https://github.com/kushalcodes/captcha-gen-js/blob/main/captcha.css) and change as you wish
 
-
 #### Thanks
+
 - I have used icons from https://www.icons8.com
