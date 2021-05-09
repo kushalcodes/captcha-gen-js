@@ -206,4 +206,4 @@ const onVerify = (verification) => {
   console.log(verification);
 }
 
-__Captcha.init(".__captcha", onVerify);
+__Captcha.init(".__captcha", onVerify, { inbuilts: true });
