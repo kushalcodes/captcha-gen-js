@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Border Verification UI Effect Example | @kushalcodes | captcha-gen-js</title>
+  <title>Tick Verification UI Effect Example | @kushalcodes | captcha-gen-js</title>
   <!-- core library -->
   <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha-gen.min.js"></script>
   <!-- inbuilts library -->
@@ -12,16 +12,21 @@
   <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha.inbuilt.min.js"></script>
 </head>
 <body>
-  <p style="text-align:center;text-decoration: underline;">Border color effect on verification.</p>
+  <p style="text-align:center;text-decoration: underline;">Both tick animation and border color effect.</p>
   <div id="my_captcha"></div>
   <div class="my_captcha"></div>
   <div class="my_captcha"></div>
 
   <script>
 
+    const responseHandler = (response) => {
+      __Captcha.Inbuilts.Verifications.Border(response);
+      __Captcha.Inbuilts.Verifications.Tick(response);
+    };
+
     // initialize with default verification response
-    __Captcha.init("#my_captcha", __Captcha.Inbuilts.Verifications.Border);
-    __Captcha.init(".my_captcha", __Captcha.Inbuilts.Verifications.Border);
+    __Captcha.init("#my_captcha", responseHandler);
+    __Captcha.init(".my_captcha", responseHandler);
   </script>
 </body>
 </html>
