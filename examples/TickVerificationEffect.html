@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Default Example | @kushalcodes | captcha-gen-js</title>
+  <title>Tick Verification UI Effect Example | @kushalcodes | captcha-gen-js</title>
   <!-- core library -->
   <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha-gen.min.js"></script>
+  <!-- inbuilts library -->
+  <!-- contains UI handlers while captcha verification -->
+  <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha.inbuilt.min.js"></script>
 </head>
 <body>
 
@@ -17,8 +20,10 @@
   <script>
 
     // initialize with default verification response
-    __Captcha.init("#my_captcha");
-    __Captcha.init(".my_captcha");
+    __Captcha.init("#my_captcha", __Captcha.Inbuilts.Verifications.Tick);
+    __Captcha.init(".my_captcha", response=>{
+      __Captcha.Inbuilts.Verifications.Tick(response, 5);
+    });
   </script>
 </body>
 </html>
