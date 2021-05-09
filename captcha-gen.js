@@ -185,7 +185,7 @@ let __Captcha = null;
 
       // if id
       if (elString[0] === "#") {
-        const el = document.getElementById(elString.replace("#"));
+        const el = document.getElementById(elString.replace("#", ""));
         if (!el) {
           console.error('captcha-gen-js : No element exist on DOM with id of ', elString);
           return;

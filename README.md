@@ -147,7 +147,7 @@
       if(response.verified){
         // lets set background color to green on captcha input text box
         __Captcha.sytleAll(
-          response, 
+          response,
           [
             ['backgroundColor', 'green']
           ]
@@ -165,7 +165,7 @@
     });
 
     // we also have individual stylers
-    // stylesArray : [ 
+    // stylesArray : [
     //   ['styleNameInCamelCase', 'stylevalue'],
     //   ['borderColor', 'red'],
     //   ...
@@ -182,7 +182,16 @@
     __Captcha.addClassAll(response, className);
     __Captcha.removeClassAll(response, className);
 
-    
+
 
 </script>
+```
+
+### Setters
+
+> use setters befor init or befor initialize
+
+```javascript
+// set custom submit btn class
+__Captcha.setSubmitIcon(imageUrl);
 ```
