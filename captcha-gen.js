@@ -164,6 +164,7 @@ let __Captcha = null;
       this.initEnterKeyInput();
     },
 
+    warned: false,
     initInner: function (elString, onVerify) {
       if (typeof elString !== "string") {
         console.error('captcha-gen-js : Invalid element passed for initliazing captcha.', elString);
@@ -171,8 +172,9 @@ let __Captcha = null;
       }
 
       if (typeof onVerify !== "function") {
-        console.warn('captcha-gen-js : No function passed for verification callback, default verification callback used', this.default.verify);
+        if(!this.warned) console.warn('captcha-gen-js : No function passed for verification callback, default verification callback used', this.default.verify);
         onVerify = this.default.verify;
+        this.warned = true;
       }
 
       // if no element identifier passed, make it to # or id
