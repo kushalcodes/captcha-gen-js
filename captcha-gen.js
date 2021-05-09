@@ -53,7 +53,7 @@ const __Captcha = {
   },
 
   // css
-  captchaCSS: "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js/captcha.css",
+  captchaCSS: "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/captcha.css",
   initCss: function () {
     const link = document.createElement('link');
     link.href = this.captchaCSS;
@@ -117,10 +117,17 @@ const __Captcha = {
 
   },
 
+  loadInBuilts: function () {
+    const inbuiltJS = "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/captcha.inbuilt.js";
+    const script = document.createElement('script');
+    script.setAttribute('src', inbuiltJS);
+    document.body.appendChild(script);
+  },
+
   // holds all on verify events
   onVerify: [],
 
-  init: function (elString, onVerify) {
+  init: function (elString, onVerify, params) {
     if (typeof elString !== "string") {
       console.error('captcha-gen-js : Invalid element passed for initliazing captcha.', elString);
       return;
@@ -129,6 +136,12 @@ const __Captcha = {
     if (typeof onVerify !== "function") {
       console.error('captcha-gen-js : Invalid function passed for verification callback.', onVerify);
       return;
+    }
+
+    if (typeof params !== "undefined") {
+      if ('inbuilts' in params) {
+        this.loadInBuilts();
+      }
     }
 
     // if no element identifier passed, make it to # or id
@@ -182,9 +195,13 @@ const onVerify = (verification) => {
   const captcha = verification.captcha;
   if (verification.verified) {
     captcha.els.input.style.borderColor = 'green'
+    captcha.els.reload.style.borderColor = 'green'
+    captcha.els.submit.style.borderColor = 'green'
   }
   else {
     captcha.els.input.style.borderColor = 'red'
+    captcha.els.reload.style.borderColor = 'red'
+    captcha.els.submit.style.borderColor = 'red'
   }
   console.log(verification);
 }
