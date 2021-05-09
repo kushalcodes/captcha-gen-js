@@ -105,7 +105,7 @@ let __Captcha = null;
       // captcha input box
       el.innerHTML += "<input type='text' class='__captcha_input __border_color_default" + (this.submitIcon ? ' custom' : '') + "' tabindex='0' id='__captcha_input_" + currentCaptcha.id + "' placeholder = 'Enter captcha' maxlength = '6' />";
       // captcha submit 
-      el.innerHTML += "<input type='button' title='Check' tabindex='-1' class='__captcha_btn __border_color_default" + (this.submitIcon ? ' custom' : '') + "' id='__captcha_submit_" + currentCaptcha.id + "' style='" + (this.submitIcon ? 'background-image:url(' + this.submitIcon + ')' : '') + "' value = '" + (this.submitIcon ? '' : '>') + "' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
+      el.innerHTML += "<input type='button' title='Check' tabindex='-1' class='__captcha_btn __border_color_default" + (this.submitIcon ? ' custom' : '') + "' id='__captcha_submit_" + currentCaptcha.id + "' style='" + (this.submitIcon ? 'background-image:url(' + this.submitIcon.url + ');' + (this.submitIcon.size ? 'background-size:' + this.submitIcon.size + ';' : '') : '') + "' value = '" + (this.submitIcon ? '' : '>') + "' onclick='__Captcha.match(" + currentCaptcha.id + ") '/>";
     },
 
     match: function (captchaId) {
@@ -172,7 +172,7 @@ let __Captcha = null;
       }
 
       if (typeof onVerify !== "function") {
-        if(!this.warned) console.warn('captcha-gen-js : No function passed for verification callback, default verification callback used', this.default.verify);
+        if (!this.warned) console.warn('captcha-gen-js : No function passed for verification callback, default verification callback used', this.default.verify);
         onVerify = this.default.verify;
         this.warned = true;
       }
@@ -222,8 +222,12 @@ let __Captcha = null;
       }
     },
 
-    setSubmitIcon: function (imgUrl) {
-      this.submitIcon = imgUrl;
+    setSubmitIcon: function (obj) {
+      if (typeof obj !== "object") {
+        console.error('captcha-gen-js: Submit icon parameter expects object passed ' + typeof obj + ' > ' + obj);
+        return;
+      }
+      this.submitIcon = obj;
     }
   };
 

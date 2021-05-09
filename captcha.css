@@ -52,7 +52,7 @@
   position: relative;
   top: 17px;
   left: -36px;
-  background-size: 100%;
+  background-size: contain;
   border: none;
   background-repeat: no-repeat;
   background-position: center;

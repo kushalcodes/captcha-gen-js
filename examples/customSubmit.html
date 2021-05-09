@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom Submit Btn Example | @kushalcodes | captcha-gen-js</title>
   <!-- core library -->
-  <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha-gen.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@d606858041d81dfe67fc64d78f35c81cfcc05bcb/min/captcha-gen.min.js"></script> -->
+  <script src="../captcha-gen.js"></script>
 </head>
 <body>
 
@@ -17,10 +18,16 @@
 
   <script>
     // setters must be called before initialize or init()
-    __Captcha.setSubmitIcon('https://img.icons8.com/ios-glyphs/30/000000/right--v1.png');
+    __Captcha.setSubmitIcon({
+      url:'https://img.icons8.com/android/13/000000/right.png',
+      size: '60% 40%'
+    });
     __Captcha.init("#my_captcha");
 
-    __Captcha.setSubmitIcon('https://img.icons8.com/nolan/64/right--v1.png');
+    __Captcha.setSubmitIcon({
+      url: 'https://img.icons8.com/nolan/64/right--v1.png',
+      size: 'contain'
+    });
     __Captcha.init(".my_captcha");
   </script>
 </body>

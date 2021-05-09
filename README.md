@@ -202,7 +202,16 @@
 
 ```javascript
 // set custom submit btn class
-__Captcha.setSubmitIcon(imageUrl);
+__Captcha.setSubmitIcon({
+  url: "imageUrl",
+  size:
+    "auto | length | cover | contain | initial | inherit | percentage | pixels",
+  // percentage and pixels can have single value as
+  // size : 10% | 10px
+  // or
+  // can have two values, width and height of the image in percent of the parent element
+  // size : 10% 20% | 10px 20px
+});
 ```
 
 #### Other
