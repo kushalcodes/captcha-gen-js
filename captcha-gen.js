@@ -64,7 +64,7 @@ let __Captcha = null;
     },
 
     // css
-    captchaCSS: "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@3192d32f17c399b81580c485925e80bcc6232243/captcha.css",
+    captchaCSS: "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@b523be5fce11d7adebd7a2a95acb2232a9032a83/captcha.css",
     initCss: function () {
       const link = document.createElement('link');
       link.href = this.captchaCSS;
