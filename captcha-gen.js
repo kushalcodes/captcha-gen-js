@@ -181,7 +181,7 @@ let __Captcha = null;
       }
 
       // initialize css
-      // this.initCss();
+      this.initCss();
 
       // if id
       if (elString[0] === "#") {
