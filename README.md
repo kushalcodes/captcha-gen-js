@@ -189,12 +189,17 @@
 
 ### Setters
 
-> use setters befor init or befor initialize
+> use setters before init or before initialize
 
 ```javascript
 // set custom submit btn class
 __Captcha.setSubmitIcon(imageUrl);
 ```
 
-#### Icons
+#### Other
+- If you want to change border color for captcha UI, i have put a css selector as .__border_color_default, just override this class to change as you need
+- For other css, you can also directly view the css selectors (https://github.com/kushalcodes/captcha-gen-js/blob/main/captcha.css) and change as you wish
+
+
+#### Thanks
 - I have used icons from https://www.icons8.com
