@@ -1,2 +1,3 @@
 # captcha-gen-js
-Generate and verify captcha 
+
+> Library to generate captcha using JavaScript
