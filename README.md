@@ -165,6 +165,12 @@
     });
 
     // we also have individual stylers
+    // stylesArray : [ 
+    //   ['styleNameInCamelCase', 'stylevalue'],
+    //   ['borderColor', 'red'],
+    //   ...
+    //  ]
+
     // for input text box
     __Captcha.styleInput(response, stylesArray);
     // for captcha reload btn
@@ -175,6 +181,8 @@
     // we can also add and remove class names to all captcha elements
     __Captcha.addClassAll(response, className);
     __Captcha.removeClassAll(response, className);
+
+    
 
 </script>
 ```
