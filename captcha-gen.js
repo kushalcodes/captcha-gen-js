@@ -117,31 +117,29 @@ const __Captcha = {
 
   },
 
-  loadInBuilts: function () {
-    const inbuiltJS = "https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@latest/captcha.inbuilt.js";
-    const script = document.createElement('script');
-    script.setAttribute('src', inbuiltJS);
-    document.body.appendChild(script);
-  },
-
   // holds all on verify events
   onVerify: [],
 
+  default: {
+    verify: function (v) {
+      if (v.verified) alert('Success: Captcha matched')
+      else alert('Error: Captcha mismatch');
+    }
+  },
+
   init: function (elString, onVerify, params) {
+    __Captcha.initInner(elString, onVerify);
+  },
+
+  initInner: function (elString, onVerify) {
     if (typeof elString !== "string") {
       console.error('captcha-gen-js : Invalid element passed for initliazing captcha.', elString);
       return;
     }
 
     if (typeof onVerify !== "function") {
-      console.error('captcha-gen-js : Invalid function passed for verification callback.', onVerify);
-      return;
-    }
-
-    if (typeof params !== "undefined") {
-      if ('inbuilts' in params) {
-        this.loadInBuilts();
-      }
+      console.warn('captcha-gen-js : No function passed for verification callback, default verification callback used', this.default.verify);
+      onVerify = this.default.verify;
     }
 
     // if no element identifier passed, make it to # or id
@@ -189,21 +187,3 @@ const __Captcha = {
     }
   }
 };
-
-
-const onVerify = (verification) => {
-  const captcha = verification.captcha;
-  if (verification.verified) {
-    captcha.els.input.style.borderColor = 'green'
-    captcha.els.reload.style.borderColor = 'green'
-    captcha.els.submit.style.borderColor = 'green'
-  }
-  else {
-    captcha.els.input.style.borderColor = 'red'
-    captcha.els.reload.style.borderColor = 'red'
-    captcha.els.submit.style.borderColor = 'red'
-  }
-  console.log(verification);
-}
-
-__Captcha.init(".__captcha", onVerify, { inbuilts: true });

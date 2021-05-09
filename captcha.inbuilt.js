@@ -3,7 +3,7 @@ if (typeof __Captcha !== "undefined") {
     Verifications: {
       Border: function (verificationObj) {
         const captcha = verificationObj.captcha;
-        if (verification.verified) {
+        if (verificationObj.verified) {
           captcha.els.input.style.borderColor = 'green'
           captcha.els.reload.style.borderColor = 'green'
           captcha.els.submit.style.borderColor = 'green'
