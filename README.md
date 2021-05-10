@@ -19,6 +19,16 @@
 <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha-gen.min.js"></script>
 ```
 
+## CSS
+
+> library's css is auto loaded when initialized, incase you want disable auto loading css:
+
+```javascript
+// use before initializing captcha or before __Captcha.init()
+__Captcha.css = false;
+```
+CSS CDN : https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha.min.css
+
 ## Use
 
 > initialize captcha on document element like:
