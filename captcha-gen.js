@@ -23,6 +23,7 @@ let __Captcha = null;
     captchas: [],
     currentCaptchaParent: null,
     submitIcon: null,
+    css: true, // if false css is not auto laoded
 
     getRandCaptchaValue: function () {
       const ALPHAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -160,9 +161,19 @@ let __Captcha = null;
     },
 
     init: function (elString, onVerify, params) {
+
+      // initialize css
+      if (this.css) this.initCss();
+
+      // params for further setting parameter, nothing atm
       this.handleParams(params);
+
+      // initialize main work
       this.initInner(elString, onVerify);
+
+      // initialize enter key input fn for captcha input text box
       this.initEnterKeyInput();
+
     },
 
     warned: false,
@@ -182,9 +193,6 @@ let __Captcha = null;
       if (elString[0] !== "#" && elString[0] !== ".") {
         elString = "#" + elString;
       }
-
-      // initialize css
-      this.initCss();
 
       // if id
       if (elString[0] === "#") {
