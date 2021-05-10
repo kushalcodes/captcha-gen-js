@@ -16,7 +16,7 @@
 > add script to head or body
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@b523be5fce11d7adebd7a2a95acb2232a9032a83/min/captcha-gen.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha-gen.min.js"></script>
 ```
 
 ## Use
@@ -80,7 +80,7 @@
 > inbuilts script, contains some useful handlers for handling captcha verification atm
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@b523be5fce11d7adebd7a2a95acb2232a9032a83/min/captcha.inbuilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha.inbuilt.min.js"></script>
 ```
 
 > if you use this, put this script after core library
