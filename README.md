@@ -1,6 +1,6 @@
 # captcha-gen-js
 
-> Library to generate captcha using JavaScript
+Library to generate captcha using JavaScript
 
 ## Examples
 
@@ -13,7 +13,7 @@
 
 ## Load library
 
-> add script to head or body
+add script to head or body
 
 ```javascript
 <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha-gen.min.js"></script>
@@ -21,7 +21,7 @@
 
 ## CSS
 
-> library's css is auto loaded when initialized, incase you want disable auto loading css:
+library's css is auto loaded when initialized, incase you want disable auto loading css:
 
 ```javascript
 // use before initializing captcha or before __Captcha.init()
@@ -31,7 +31,7 @@ CSS CDN : https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/capt
 
 ## Use
 
-> initialize captcha on document element like:
+initialize captcha on document element like:
 
 - using id
 
@@ -87,7 +87,7 @@ CSS CDN : https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/capt
 
 ### Inbuilts Functions
 
-> inbuilts script, contains some useful handlers for handling captcha verification atm
+inbuilts script, contains some useful handlers for handling captcha verification atm
 
 ```javascript
 <script src="https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/captcha.inbuilt.min.js"></script>
@@ -97,9 +97,9 @@ CSS CDN : https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/capt
 
 ### Using Inbuilts Functions
 
-> after loading inbuilts script you have \_\_Captcha.Inbuilts available
+- after loading inbuilts script you have \_\_Captcha.Inbuilts available
 
-> atm \_\_Captcha.Inbuilts.Verifications has some UI interactive verification handling functions
+- atm \_\_Captcha.Inbuilts.Verifications has some UI interactive verification handling functions
 
 ```javascript
 <script type="text/javascript">
@@ -208,7 +208,7 @@ CSS CDN : https://cdn.jsdelivr.net/gh/kushalcodes/captcha-gen-js@master/min/capt
 
 ### Setters
 
-> use setters before init or before initialize
+use setters before init or before initialize
 
 ```javascript
 // set custom submit btn
