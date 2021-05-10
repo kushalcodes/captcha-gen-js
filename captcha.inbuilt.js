@@ -1,3 +1,6 @@
+// by @kushalcodes (https://github.com/kushalcodes)
+// https://www.neupanekushal.com.np
+
 // inbuilt handlers for captcha-gen-js by @kushalcodes (https://github.com/kushalcodes)
 if (typeof __Captcha !== "undefined") {
   // built in easy functions

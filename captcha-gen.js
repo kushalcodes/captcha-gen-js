@@ -1,4 +1,5 @@
 // by @kushalcodes (https://github.com/kushalcodes)
+// https://www.neupanekushal.com.np
 let __Captcha = null;
 (function () {
 
